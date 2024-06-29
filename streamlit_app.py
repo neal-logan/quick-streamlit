@@ -62,7 +62,6 @@ target_sales_by_month = target_data.filter(items=['Sales']).groupby(pd.Grouper(f
 st.line_chart(target_sales_by_month, y="Sales")
 
 st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-reference/data/st.metric) for the selected items in (2): total sales, total profit, and overall profit margin (%)")
-st.write("### (5) use the delta option in the overall profit margin metric to show the difference between the overall average profit margin (all products across all categories)")
 
 target_sales = target_data['Sales'].sum()
 target_profit = target_data['Profit'].sum()
@@ -88,7 +87,6 @@ st.metric(
     help=None, 
     label_visibility="visible")
 
-
 st.metric(
     label = 'Selected Subcategory: Overall Profit Margin (%)', 
     value = target_profit_margin*100, 
@@ -97,4 +95,5 @@ st.metric(
     help=None, 
     label_visibility="visible")
 
+st.write("### (5) use the delta option in the overall profit margin metric to show the difference between the overall average profit margin (all products across all categories) \n (see above)")
 
